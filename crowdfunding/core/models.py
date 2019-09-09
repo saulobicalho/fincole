@@ -14,7 +14,7 @@ class Pesquisador(models.Model):
     rg = models.CharField(max_length=12, null=False)
     cpf = models.CharField(max_length=15, null=False)
     instituicao_origem = models.ForeignKey(Instituicao, on_delete=models.PROTECT)
-    foto = models.ImageField(upload_to='pesquisador_fotos')
+    #foto = models.ImageField(upload_to='pesquisador_fotos')
 
     def __str__(self):
         return self.nome
