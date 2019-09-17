@@ -41,6 +41,16 @@ def pesquisador_update(request, id):
         return render(request, 'core/update_pesquisador.html',data)
 
 
+def pesquisador_delete(request, id):
+    data = {}
+    pesquisador = Pesquisador.objects.get(id=id)
+    if request.method == 'POST':
+        pesquisador.delete()
+        return redirect('core_lista_pessoas')
+    else:
+        return render(request, 'core/delete_confirm.html',{'pesquisador':pesquisador})
+
+
 def lista_projetos(request):
     projetos = Projeto.objects.all()
     form = ProjetoForm()

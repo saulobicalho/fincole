@@ -1,0 +1,8 @@
+<h2> {{ pesquisador }}, tem certeza que deseja descadastrar-se?</h2>
+
+
+<form method="POST" action="{% url 'core_pesquisador_delete' pesquisador.id %}">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+
+</form>
