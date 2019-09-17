@@ -5,10 +5,12 @@ from .models import (
     Instituicao
 )
 
-from .forms import PesquisadorForm
+from .forms import PesquisadorForm, ProjetoForm
+
 
 def home(request):
     return render(request, 'core/index.html')
+
 
 def lista_pesquisadores(request):
     pesquisadores = Pesquisador.objects.all()
@@ -16,15 +18,26 @@ def lista_pesquisadores(request):
     data = {'pesquisadores':pesquisadores, 'form': form}
     return render(request, 'core/lista_pesquisadores.html', data)
 
+
 def pesquisador_novo(request):
     form = PesquisadorForm(request.POST or None)
     if form.is_valid():
         form.save()
     return redirect('core_lista_pesquisadores')
 
+
 def lista_projetos(request):
     projetos = Projeto.objects.all()
-    return render(request, 'core/lista_projetos.html',{'projetos':projetos})
+    form = ProjetoForm()
+    data = {'projetos':projetos, 'form': form}
+    return render(request, 'core/lista_projetos.html',data)
+
+
+def projeto_novo(request):
+    form = ProjetoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_projetos')
 
 
 def lista_instituicoes(request):

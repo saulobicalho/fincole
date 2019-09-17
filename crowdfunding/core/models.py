@@ -27,7 +27,7 @@ class Projeto(models.Model):
     objetivo = models.IntegerField(null=False)
     arrecadado = models.IntegerField()
     data_criacao = models.DateTimeField(auto_now_add=True)
-    foto = models.ImageField(upload_to='projeto_fotos')
+    #foto = models.ImageField(upload_to='projeto_fotos')
 
     def __str__(self):
         return self.titulo
