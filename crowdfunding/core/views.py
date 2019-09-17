@@ -41,7 +41,6 @@ def pesquisador_update(request, id):
         return render(request, 'core/update_pesquisador.html',data)
 
 
-
 def lista_projetos(request):
     projetos = Projeto.objects.all()
     form = ProjetoForm()
@@ -54,6 +53,21 @@ def projeto_novo(request):
     if form.is_valid():
         form.save()
     return redirect('core_lista_projetos')
+
+
+def projeto_update(request, id):
+    data = {}
+    projeto = Projeto.objects.get(id=id)
+    form = ProjetoForm(request.POST or None, instance=projeto)
+    data['projeto'] = projeto
+    data['form'] = form
+
+    if request.method =='POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_projetos')
+    else:
+        return render(request, 'core/update_projeto.html',data)
 
 
 def lista_instituicoes(request):

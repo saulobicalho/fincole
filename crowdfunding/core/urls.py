@@ -10,6 +10,7 @@ from .views import (
     pesquisador_novo,
     projeto_novo,
     pesquisador_update,
+    projeto_update,
 )
 urlpatterns = [
     path('',home, name='core_home'),
@@ -18,5 +19,6 @@ urlpatterns = [
     url('pesquisador-update/(?P<id>\d+)/$', pesquisador_update, name='core_pesquisador_update'),
     path('projeto-novo',projeto_novo, name='core_projeto_novo'),
     path('projetos', lista_projetos, name='core_lista_projetos'),
+    url('projeto-update/(?P<id>\d+)/$', projeto_update, name='core_projeto_update'),
     path('instituicoes', lista_instituicoes, name='core_lista_instituicoes'),
 ]

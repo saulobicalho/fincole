@@ -2,7 +2,9 @@
 
 <ul>
 {% for projeto in projetos %}
-    <li> {{projeto}}</li>
+    <li>
+        <a href="{% url 'core_projeto_update' projeto.id %}"> {{projeto.titulo }} </a>
+    </li>
 {% endfor %}
 </ul>
 
