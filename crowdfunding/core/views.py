@@ -26,6 +26,22 @@ def pesquisador_novo(request):
     return redirect('core_lista_pesquisadores')
 
 
+def pesquisador_update(request, id):
+    data = {}
+    pesquisador = Pesquisador.objects.get(id=id)
+    form = PesquisadorForm(request.POST or None, instance=pesquisador)
+    data['pesquisador'] = pesquisador
+    data['form'] = form
+
+    if request.method =='POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_pesquisadores')
+    else:
+        return render(request, 'core/update_pesquisador.html',data)
+
+
+
 def lista_projetos(request):
     projetos = Projeto.objects.all()
     form = ProjetoForm()

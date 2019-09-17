@@ -2,7 +2,9 @@
 
 <ul>
 {% for pesquisador in pesquisadores %}
-    <li> {{pesquisador}}</li>
+    <li>
+        <a href="{% url 'core_pesquisador_update' pesquisador.id %}"> {{pesquisador.nome }} </a>
+    </li>
 {% endfor %}
 </ul>
 
