@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
 <h2>Atualizando Pesquisador: {{ pesquisador }}</h2>
 
 
@@ -10,3 +14,5 @@
 </form>
 
 <a href="{% url 'core_pesquisador_delete' pesquisador.id %}">Descadastrar-se</a>
+
+{% endblock %}

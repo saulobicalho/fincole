@@ -1,17 +1,23 @@
-<h2>Lista de Pesquisadores</h2>
+{% extends 'base.html' %}
 
-<ul>
-{% for pesquisador in pesquisadores %}
-    <li>
-        <a href="{% url 'core_pesquisador_update' pesquisador.id %}"> {{pesquisador.nome }} </a>
-    </li>
-{% endfor %}
-</ul>
+{% block main %}
 
-<form action="{% url 'core_pesquisador_novo' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <h2>Lista de Pesquisadores</h2>
 
-    <button type="submit">Cadastrar</button>
+    <ul>
+    {% for pesquisador in pesquisadores %}
+        <li>
+            <a href="{% url 'core_pesquisador_update' pesquisador.id %}"> {{pesquisador.nome }} </a>
+        </li>
+    {% endfor %}
+    </ul>
 
-</form>
+    <form action="{% url 'core_pesquisador_novo' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+
+    </form>
+
+{% endblock %}
