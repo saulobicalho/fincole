@@ -46,9 +46,9 @@ def pesquisador_delete(request, id):
     pesquisador = Pesquisador.objects.get(id=id)
     if request.method == 'POST':
         pesquisador.delete()
-        return redirect('core_lista_pessoas')
+        return redirect('core_lista_pesquisadores')
     else:
-        return render(request, 'core/delete_confirm.html',{'pesquisador':pesquisador})
+        return render(request, 'core/delete_confirm.html',{'obj':pesquisador})
 
 
 def lista_projetos(request):
@@ -78,6 +78,16 @@ def projeto_update(request, id):
             return redirect('core_lista_projetos')
     else:
         return render(request, 'core/update_projeto.html',data)
+
+def projeto_delete(request, id):
+    data = {}
+    projeto = Projeto.objects.get(id=id)
+    if request.method == 'POST':
+        projeto.delete()
+        return redirect('core_lista_projetos')
+    else:
+        return render(request, 'core/delete_confirm.html',{'obj':projeto})
+
 
 
 def lista_instituicoes(request):
