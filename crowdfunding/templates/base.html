@@ -5,11 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <title>Title</title>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 
     <div class="container-fluid">
+
+
+    {% block menu %}
+    {% endblock %}
 
     {% block main %}
     {% endblock %}
