@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
 
-<h2>Atualizando Pesquisador: {{ pesquisador }}</h2>
+    <div class="row">
+        <div class="col">
+            <h2>Atualizando Pesquisador: {{ pesquisador }}</h2>
 
+            <form action="{% url 'core_pesquisador_update' pesquisador.id %}" method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
 
-<form action="{% url 'core_pesquisador_update' pesquisador.id %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <button type="submit">Salvar</button>
-
-</form>
-
-<a href="{% url 'core_pesquisador_delete' pesquisador.id %}">Descadastrar-se</a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="{% url 'core_pesquisador_delete' pesquisador.id %}" class="btn btn-danger">Deletar</a>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

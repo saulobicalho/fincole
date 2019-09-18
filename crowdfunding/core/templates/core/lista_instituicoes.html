@@ -2,12 +2,18 @@
 
 {% block main %}
 
-<h2>Lista de instituicoes</h2>
+<div class="row">
+    <div class="col">
 
-<ul>
-{% for instituicao in instituicoes %}
-    <li> { instituicao}}</li>
-{% endfor %}
-</ul>
+        <h2>Lista de instituicoes</h2>
+
+        <ul>
+        {% for instituicao in instituicoes %}
+            <li> { instituicao}}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+</div>
 
 {% endblock %}
