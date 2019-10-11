@@ -5,3 +5,4 @@ pipenv shell
 pipenv install django
 django-admin startproject crowdfundingd
 creates superuser
+.
